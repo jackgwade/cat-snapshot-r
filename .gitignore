@@ -1,0 +1,14 @@
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+# data
+data/raw/
+data/derived/*.rds
+# cache / renders
+_cache/
+*.utf8.md
+*.knit.md
+# OS junk
+.DS_Store
+
