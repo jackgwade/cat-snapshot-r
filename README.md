@@ -104,9 +104,8 @@ From the project root in RStudio:
 
 r
 Copy code
-## How to Run the Project
+### How to Run the Project
 
-### Build the working dataset
 
 ```r
 source("R/02_build_working_set.R")
