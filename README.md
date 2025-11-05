@@ -43,10 +43,10 @@ The script R/01_manifest_and_download.R in this repo is an optional helper for a
 Pipeline Overview
 Once the raw .csv.gz files are in data/raw/, there are two main scripts.
 
-1. Build the Combined Severe-Convective Dataset
+## 1. Build the Combined Severe-Convective Dataset
 Script: R/02_build_working_set.R
 
-This script:
+### This script:
 
 Finds all StormEvents_details-*.csv.gz files in data/raw/.
 
@@ -60,7 +60,7 @@ Filters to severe convective storms:
 
 "Thunderstorm Wind"
 
-Selects and cleans key fields:
+### Selects and cleans key fields:
 
 YEAR, STATE, CZ_NAME, EVENT_TYPE
 
@@ -68,15 +68,15 @@ DAMAGE_PROPERTY, DEATHS_DIRECT, INJURIES_DIRECT
 
 BEGIN_LAT, BEGIN_LON, END_LAT, END_LON
 
-Writes a processed CSV:
+### Writes a processed CSV:
 
 data/processed/scs_combined_2015_2024.csv
 
 
-2. Visualize Severe Convective Hotspots
+## 2. Visualize Severe Convective Hotspots
 Script: R/03_visualize_hotspots.R
 
-This script:
+### This script:
 
 Reads the combined dataset:
 
