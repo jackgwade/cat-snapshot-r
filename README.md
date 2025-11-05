@@ -109,8 +109,7 @@ The map will be written to:
 
 figs/scs_hotspots_map.png
 
-Repository Structure
-
+```text
 R/
   ├─ 01_manifest_and_download.R   # optional helper for automated downloads
   ├─ 02_build_working_set.R       # combines & filters Storm Events details
@@ -122,7 +121,11 @@ data/
 
 figs/
   └─ scs_hotspots_map.png         # final map output
+```
 
+.gitignore
+cat-snapshot-r.Rproj
+README.md
 .gitignore
 cat-snapshot-r.Rproj
 README.md
