@@ -154,3 +154,4 @@ Coordinates are used as given in the Storm Events details files and may contain 
 
 Contributions
 Suggestions and improvements are welcome.
+Open an issue or submit a pull request if you’d like to extend or refine the analysis or visualization.
