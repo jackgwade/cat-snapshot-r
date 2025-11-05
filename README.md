@@ -104,10 +104,15 @@ From the project root in RStudio:
 
 r
 Copy code
-# Build the working dataset
-source("R/02_build_working_set.R")
+## How to Run the Project
 
-# Create the hotspot map
+### Build the working dataset
+
+```r
+source("R/02_build_working_set.R")
+Create the hotspot map
+r
+Copy code
 source("R/03_visualize_hotspots.R")
 The map will be written to:
 
@@ -149,4 +154,3 @@ Coordinates are used as given in the Storm Events details files and may contain 
 
 Contributions
 Suggestions and improvements are welcome.
-Open an issue or submit a pull request if you’d like to extend or refine the analysis or visualization.
