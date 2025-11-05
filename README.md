@@ -36,8 +36,7 @@ Instead of automatically downloading files from within R, the Storm Events data 
    StormEvents_details-ftp_v1.0_dYYYY_c*.csv.gz
 Save all of these files into:
 
-text
-Copy code
+
 data/raw/
 The script R/01_manifest_and_download.R in this repo is an optional helper for automating downloads, but the analysis and map shown here are based on these manually downloaded files in data/raw/.
 
@@ -71,10 +70,8 @@ BEGIN_LAT, BEGIN_LON, END_LAT, END_LON
 
 Writes a processed CSV:
 
-text
-Copy code
 data/processed/scs_combined_2015_2024.csv
-Note: the data/ directory is listed in .gitignore, so raw and processed data are not committed to the repository.
+
 
 2. Visualize Severe Convective Hotspots
 Script: R/03_visualize_hotspots.R
@@ -83,10 +80,9 @@ This script:
 
 Reads the combined dataset:
 
-text
-Copy code
 data/processed/scs_combined_2015_2024.csv
 Filters to years 2015–2024 (safety check).
+
 
 Bins events into a regular latitude/longitude grid (e.g., 2° × 2° bins).
 
@@ -96,31 +92,25 @@ Draws a U.S. map using ggplot2 with a dark theme and viridis color scale.
 
 Saves the final figure to:
 
-text
-Copy code
 figs/scs_hotspots_map.png
-How to Run the Project
-From the project root in RStudio:
 
-r
-Copy code
+
 ## How to Run the Project
 
 
-```r
+
 source("R/02_build_working_set.R")
-Create the hotspot map
-r
-Copy code
+Create working set
+
 source("R/03_visualize_hotspots.R")
+Create hotspot map
+
 The map will be written to:
 
-text
-Copy code
 figs/scs_hotspots_map.png
+
 Repository Structure
-text
-Copy code
+
 R/
   ├─ 01_manifest_and_download.R   # optional helper for automated downloads
   ├─ 02_build_working_set.R       # combines & filters Storm Events details
@@ -139,18 +129,16 @@ README.md
 Caveats
 Only three event types are included: Tornado, Hail, and Thunderstorm Wind.
 
-The hotspot map is based on reported events, which can be influenced by:
+## The hotspot map is based on reported events, which can be influenced by:
 
-Population density
+  Population density
 
-Observation practices
+  Observation practices
 
-Reporting changes over time
+  Reporting changes over time
 
-Only details files are used; location and fatality tables are not yet incorporated.
+  Only details files are used; location and fatality tables are not yet incorporated.
 
-Coordinates are used as given in the Storm Events details files and may contain location uncertainty.
+  Coordinates are used as given in the Storm Events details files and may contain location uncertainty.
 
-Contributions
-Suggestions and improvements are welcome.
-Open an issue or submit a pull request if you’d like to extend or refine the analysis or visualization.
+
