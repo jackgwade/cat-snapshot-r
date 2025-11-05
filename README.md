@@ -104,7 +104,7 @@ From the project root in RStudio:
 
 r
 Copy code
-### How to Run the Project
+## How to Run the Project
 
 
 ```r
