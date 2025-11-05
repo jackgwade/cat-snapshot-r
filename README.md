@@ -123,13 +123,7 @@ figs/
   └─ scs_hotspots_map.png         # final map output
 ```
 
-.gitignore
-cat-snapshot-r.Rproj
-README.md
-.gitignore
-cat-snapshot-r.Rproj
-README.md
-Caveats
+
 Only three event types are included: Tornado, Hail, and Thunderstorm Wind.
 
 ## The hotspot map is based on reported events, which can be influenced by:
