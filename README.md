@@ -1,6 +1,6 @@
 # CAT Snapshot: U.S. Severe Convective Storm Hotspots (2015–2024) in R
 
-This project maps U.S. severe convective storm hotspots from **2015–2024** using NOAA’s Storm Events data.  
+This project maps U.S. severe convective storm hotspots from 2015–2024 using NOAA’s Storm Events data.
 
 It focuses on three event types:
 
@@ -16,9 +16,9 @@ The main output is a gridded hotspot map saved as:
 
 ## Data Source
 
-All data come from the **NOAA / NCEI Storm Events Database** (bulk CSV files):
+All data come from the NOAA / NCEI Storm Events Database (bulk CSV files):
 
-- National Centers for Environmental Information (NCEI), Storm Events Database  
+- **National Centers for Environmental Information (NCEI)** – Storm Events Database  
   <https://www.ncei.noaa.gov/products/land-based-station/storm-events>
 
 For this project only the **StormEvents _details_ files** are used (one row per event with time, location, and impacts).
@@ -29,8 +29,8 @@ For this project only the **StormEvents _details_ files** are used (one row per 
 
 Instead of automatically downloading files from within R, the Storm Events data were **manually downloaded**:
 
-1. Open the **NCEI Storm Events Bulk Data** interface.
-2. For each year **2015–2024**, download the compressed *details* file:
+1. Open the NCEI Storm Events Bulk Data interface.
+2. For each year **2015–2024**, download the compressed **details** file:
 
    ```text
    StormEvents_details-ftp_v1.0_dYYYY_c*.csv.gz
@@ -42,7 +42,7 @@ data/raw/
 The script R/01_manifest_and_download.R in this repo is an optional helper for automating downloads, but the analysis and map shown here are based on these manually downloaded files in data/raw/.
 
 Pipeline Overview
-Once the raw .csv.gz files are in data/raw/, there are two main scripts:
+Once the raw .csv.gz files are in data/raw/, there are two main scripts.
 
 1. Build the Combined Severe-Convective Dataset
 Script: R/02_build_working_set.R
@@ -55,7 +55,11 @@ Reads and combines them into a single data frame.
 
 Filters to severe convective storms:
 
-"Tornado", "Hail", "Thunderstorm Wind"
+"Tornado"
+
+"Hail"
+
+"Thunderstorm Wind"
 
 Selects and cleans key fields:
 
@@ -70,7 +74,7 @@ Writes a processed CSV:
 text
 Copy code
 data/processed/scs_combined_2015_2024.csv
-Note: The data/ directory is listed in .gitignore, so raw and processed data are not committed to the repository.
+Note: the data/ directory is listed in .gitignore, so raw and processed data are not committed to the repository.
 
 2. Visualize Severe Convective Hotspots
 Script: R/03_visualize_hotspots.R
@@ -98,46 +102,46 @@ figs/scs_hotspots_map.png
 How to Run the Project
 From the project root in RStudio:
 
-Build the working dataset
-
 r
 Copy code
+# Build the working dataset
 source("R/02_build_working_set.R")
-Create the hotspot map
 
-r
-Copy code
+# Create the hotspot map
 source("R/03_visualize_hotspots.R")
-The map will be written to figs/scs_hotspots_map.png.
+The map will be written to:
 
+text
+Copy code
+figs/scs_hotspots_map.png
 Repository Structure
 text
 Copy code
-.
-├── R/
-│   ├── 01_manifest_and_download.R   # optional helper for automated downloads
-│   ├── 02_build_working_set.R      # combines & filters Storm Events details
-│   └── 03_visualize_hotspots.R     # produces the hotspot map
-├── data/
-│   ├── raw/                        # manually downloaded StormEvents_details-*.csv.gz (gitignored)
-│   └── processed/                  # processed outputs, e.g. scs_combined_2015_2024.csv (gitignored)
-├── figs/
-│   └── scs_hotspots_map.png        # final map output
-├── .gitignore
-├── cat-snapshot-r.Rproj
-└── README.md
-Important: data/ is ignored by Git via .gitignore, so raw and processed data are not committed to the repository.
+R/
+  ├─ 01_manifest_and_download.R   # optional helper for automated downloads
+  ├─ 02_build_working_set.R       # combines & filters Storm Events details
+  └─ 03_visualize_hotspots.R      # produces the hotspot map
 
+data/
+  ├─ raw/                         # manually downloaded StormEvents_details-*.csv.gz (gitignored)
+  └─ processed/                   # processed outputs, e.g. scs_combined_2015_2024.csv (gitignored)
+
+figs/
+  └─ scs_hotspots_map.png         # final map output
+
+.gitignore
+cat-snapshot-r.Rproj
+README.md
 Caveats
 Only three event types are included: Tornado, Hail, and Thunderstorm Wind.
 
 The hotspot map is based on reported events, which can be influenced by:
 
-population density
+Population density
 
-observation practices
+Observation practices
 
-reporting changes over time
+Reporting changes over time
 
 Only details files are used; location and fatality tables are not yet incorporated.
 
@@ -145,3 +149,4 @@ Coordinates are used as given in the Storm Events details files and may contain 
 
 Contributions
 Suggestions and improvements are welcome.
+Open an issue or submit a pull request if you’d like to extend or refine the analysis or visualization.
